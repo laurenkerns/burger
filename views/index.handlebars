@@ -1,16 +1,28 @@
 <div class="container">
 
-<h1>EAT DA BURGER!</h1>
+<h1 id="header">EAT DA BURGER!</h1>
+
+
 
 <div class = "row">
     <div class= "col-md-6 col-left">
         <ul>
             {{#each burgers}} 
                 {{#unless devoured}}
-                    <li>{{this.burger.name}}</li>
+                    {{> burgers/burger-block devoured = false}}
                 {{/unless}}
             {{/each}}
         </ul>
+    </div>
+</div>
+
+<div class = "row">
+    <div class= "col-md-6 col-right">
+            {{#each burgers}} 
+                {{#if devoured}}
+                    {{> burgers/burger-block devoured = true}}
+                {{/if}}
+            {{/each}}
     </div>
 </div>
 
