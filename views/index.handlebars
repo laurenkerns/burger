@@ -3,34 +3,22 @@
 <h2>Add you favorite Burger!</h2>
 
 <ul>
-  {{#each burgers}}
-    {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
-    {{/unless}}
-  {{/each}}
+  {{#each burgers}} {{> burger}} {{/each}}
 </ul>
 
-<h2>Cats that are sleepy!</h2>
+<br>
 
-<ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
-    {{/if}}
-  {{/each}}
-</ul>
+<div>
+   <form class="create-form">
+        <div class="form-group">
+            <textarea rows="4" cols="50" id="burgerField" name="name" placeholder="Add burger here.."></textarea>
+        </div>
+        <div class="buttonDiv">
+            <button type="submit">ADD DA BURGER</button>
+        </div>
+        <div class="buttonDiv">
+            <p>What burger would you like to devour? Enter and hit "ADD DA BURGER"</p>
+        </div>
+    </form>
 
-<h2>Add a Cat</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Burger Type:</label>
-    <input type="text" id="burger_form" name="name">
-  </div>
-
-  <div class="form-group">
-    <input type="input" name="burger_input" value="Enter a Burger">
-  </div>
-
-  <button type="submit">Add Burger</button>
-</form>
+</div>
