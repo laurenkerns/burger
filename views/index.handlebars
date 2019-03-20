@@ -3,22 +3,28 @@
 <h2>Add you favorite Burger!</h2>
 
 <ul>
-  {{#each burgers}} {{> burger}} {{/each}}
+  {{#each burgers}} 
+    {{#unless devoured}}
+  <li>{{this.burger.name}}</li>
+    {{/unless}}
+  {{/each}}
 </ul>
+
+
 
 <br>
 
+<h3>Add a Burger!</h3>
+
 <div>
-   <form class="create-form">
-        <div class="form-group">
-            <textarea rows="4" cols="50" id="burgerField" name="name" placeholder="Add burger here.."></textarea>
-        </div>
-        <div class="buttonDiv">
-            <button type="submit">ADD DA BURGER</button>
-        </div>
-        <div class="buttonDiv">
-            <p>What burger would you like to devour? Enter and hit "ADD DA BURGER"</p>
+    <form>
+        <div>
+            <div class="form-group">
+                <label for="EatDaBurger">Enter a burger</label>
+                <input type="test" class="form-control" id="burgerType" placeholder="Enter Burger"></input>
+            </div>  
+                <button type="submit" class="btn btn-primary">Add Da Burger</button>
         </div>
     </form>
-
 </div>
+
