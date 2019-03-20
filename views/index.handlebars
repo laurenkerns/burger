@@ -1,14 +1,23 @@
+<div class="container">
+
 <h1>EAT DA BURGER!</h1>
 
-<h2>Add you favorite Burger!</h2>
+<div class = "row">
+    <div class= "col-md-6 col-left">
+        <ul>
+            {{#each burgers}} 
+                {{#unless devoured}}
+                    <li>{{this.burger.name}}</li>
+                {{/unless}}
+            {{/each}}
+        </ul>
+    </div>
+</div>
 
-<ul>
-  {{#each burgers}} 
-    {{#unless devoured}}
-  <li>{{this.burger.name}}</li>
-    {{/unless}}
-  {{/each}}
-</ul>
+
+
+
+
 
 
 
@@ -18,13 +27,15 @@
 
 <div>
     <form>
-        <div>
-            <div class="form-group">
-                <label for="EatDaBurger">Enter a burger</label>
-                <input type="test" class="form-control" id="burgerType" placeholder="Enter Burger"></input>
-            </div>  
-                <button type="submit" class="btn btn-primary">Add Da Burger</button>
-        </div>
+        <div class="form-group">
+            <label for="name">Enter a burger</label>
+            <input type="text" class="form-control" id="burger_name" name="burger_name" placeholder="Enter Burger"></input>
+        </div>  
+        <button type="submit" class="btn btn-primary">Add Da Burger</button>
     </form>
+</div>
+
+
+
 </div>
 
