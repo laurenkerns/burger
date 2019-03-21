@@ -2,10 +2,7 @@
 const connection = require("../config/connection.js");
 
 // Helper function for SQL syntax.
-// Let's say we want to pass 3 values into the mySQL query.
-// In order to write the query, we need 3 question marks.
-// The above helper function loops through and creates an array of question marks - ["?", "?", "?"] - and turns it into a string.
-// ["?", "?", "?"].toString() => "?,?,?";
+
 function printQuestionMarks(num) {
   var arr = [];
 
@@ -88,68 +85,9 @@ var orm = {
 
       cb(result);
     });
-  }
+  },
+
 };
 
 // Export the orm object for the model (burger.js).
 module.exports = orm;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// //CREAT ORM with select all, insertOne and UpdateOne mysql statements
-
-// const orm = {
-// //SELECT ALL
-//     selectAll: function(tableInput, cb) {
-//       const queryString = "SELECT * FROM " + tableInput;
-//       connection.query(queryString, function(err, result) {
-//         if (err) {
-//           throw err;
-//         }
-//         cb(result);
-//       });
-//     },
-
-// //Insert ONE
-
-//     insertOne: function(columnName, itemName, cb) {
-//       let queryString = "INSERT INTO  burgers ("+ columnName.toString() + ") VALUES (?)";
-//       connection.query(queryString, [itemName], function(err, result) {
-//         if (err) {
-//           throw err;
-//         }
-//         cb(result);
-//       });
-//     },
-
-// //UPDATE
-
-//     updateOne: function(columnName, objColVals, condition, cb) {
-//       let queryString = "UPDATE burgers SET " +columnName + "=" + objColVals + "WHERE" + condition
-//       connection.query(queryString, function(err, result) {
-//         if (err) {
-//           throw err;
-//         }
-//         cb(result);
-//       });
-//     },
-
-//   };
-
-// // Export the orm object for the model (burger.js)
-// module.exports = orm;

@@ -15,6 +15,7 @@ router.get("/", function(req, res) {
     });
   });
   
+  /////////////////////////cannot get api/burgers
   ///CREATONE
   router.post("/api/burgers", function(req, res) {
     burger.create([
