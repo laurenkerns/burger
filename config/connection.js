@@ -1,6 +1,7 @@
 // Set up MySQL connection.
 const mysql = require("mysql");
 
+//create connection
 let connection;
 if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
@@ -16,7 +17,7 @@ connection = mysql.createConnection({
 });
 }
 
-// Make connection.
+// Make connection
 connection.connect(err => {
   if (err) {
     console.error(`error connecting: ${err.stack}`);

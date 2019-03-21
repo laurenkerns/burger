@@ -1,11 +1,12 @@
+//dependencies 
 const express = require("express");
 const burger = require("../models/burger.js");
 const router = express.Router();
 
-//routes
-// Create all our routes and set up logic within those routes where required.
+//////////////////ROUTES////////////////////
+
 ///SELECT ALL
-router.get("/", function(req, res) {
+  router.get("/", function(req, res) {
     burger.all(function(data) {
       const hbsObject = {
         burgers: data
@@ -15,8 +16,8 @@ router.get("/", function(req, res) {
     });
   });
   
-  /////////////////////////cannot get api/burgers
-  ///CREATONE
+  
+///CREATONE
   router.post("/api/burgers", function(req, res) {
     burger.create([
       "burger_name", "devoured"
@@ -29,7 +30,7 @@ router.get("/", function(req, res) {
   });
 
   
-  ///UPDATEONE  
+///UPDATEONE  
   router.put("/api/burgers/:id", function(req, res) {
     let condition = "id =" + req.params.id;
     console.log("condition", condition);

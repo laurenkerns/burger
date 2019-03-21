@@ -1,4 +1,7 @@
+//FRONT END JS
 
+
+//////////////ON-CLICK DEVOURED FUNCTION////////////////
 $(function() {
     $(".devoured").on("click", function(event) {
       const id = $(this).data("id");
@@ -8,17 +11,20 @@ $(function() {
         devoured: newDevoured
       };
   
-      // Send the PUT request.
+// AJAX CALL TO BURGERS API
+//PUT REQUEST TO UPDATE THE RECORD TO newDevouredState
       $.ajax("/api/burgers/" + id, {
         type: "PUT",
         data: newDevouredState
       }).then(function(){
         console.log("changed devoured to", newDevoured);
-        // Reload the page to get the updated list
         location.reload();
       });
     });
-  
+
+
+
+//////////////////ON "SUBMIT" CLICK FUNCTION////////////////////////
     $(".create-form").on("submit", function(event) {
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
@@ -26,8 +32,9 @@ $(function() {
       const newBurger = {
         burger_name: $("#burger").val().trim(),
       };
-  
-      // Send the POST request.
+
+//AJAX CALL TO BURGERS API
+//POST REQUEST TO CREATE NEW BURGER  
       $.ajax("/api/burgers", {
         type: "POST",
         data: newBurger
