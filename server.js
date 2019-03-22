@@ -3,19 +3,19 @@ const express = require("express");
 const PORT = process.env.PORT || 8080;
 const app = express();
 const path = require("path")
-
+const timeout = require('connect-timeout');
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(path.join(__dirname, 'public')));
 
-// /////// JAWSDB H13 ERROR SOLUTION://////
-// app.use(timeout(15000));
-// app.use(haltOnTimedout);
+/////// JAWSDB H13 ERROR SOLUTION://////
+app.use(timeout(15000));
+app.use(haltOnTimedout);
 
-// function haltOnTimedout(req, res, next) {
-//   if (!req.timedout) next();
-// }
-
+function haltOnTimedout(req, res, next) {
+  if (!req.timedout) next();
+}
+/////////////////////////////////////////////
 
 // Parse application body as JSON
 app.use(express.urlencoded({ extended: true }));
