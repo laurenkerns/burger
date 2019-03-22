@@ -1,5 +1,6 @@
 // Set up MySQL connection.
 const mysql = require("mysql");
+const path = require("path");
 
 //create connection
 let connection;
